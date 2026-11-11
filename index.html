@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Áreas de interés | Gestor de oportunidades</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <img class="logo" src="assets/imgHorizontalPrimarioBlanco.svg" alt="Tecnológico de Monterrey">
+    <span class="product-name">Gestor de oportunidades</span>
+    <span class="powered">Powered × Bamboo Design</span>
+    <div class="profile"><span class="help" aria-label="Ayuda">?</span><img src="assets/imgImage6.png" alt="Perfil de usuario" width="32" height="32"></div>
+  </header>
+  <aside class="sidebar" aria-label="Inicio"><span class="symbol" aria-hidden="true">home</span><hr></aside>
+  <main>
+    <header class="welcome">
+      <h1>¡Te damos la bienvenida!</h1>
+      <p>Selecciona lo que más te inspira y descubre las áreas de interés para ti. Esto nos ayudará a personalizar y enfocar tu experiencia.</p>
+    </header>
+    <div class="workspace">
+      <section class="card" aria-labelledby="page-title">
+        <h2 id="page-title">Áreas de interés</h2>
+        <div class="columns">
+          <section class="panel categories" aria-labelledby="categories-title">
+            <div class="panel-heading"><h3 id="categories-title">Categorías disponibles</h3><button id="filters-open" class="icon-button" type="button" aria-label="Filtros" aria-haspopup="dialog"><span class="symbol" aria-hidden="true">tune</span></button></div>
+            <div id="search-results" class="search-results" hidden><p>Resultados para: <span id="search-term"></span></p><button id="show-all" class="text-button" type="button">Ver todas las categorías</button></div>
+            <p id="no-results" class="no-results" role="status" hidden>No encontramos subcategorías que coincidan con tu búsqueda.</p>
+            <div id="accordions" class="accordion-list"></div>
+          </section>
+          <div id="interests-home" hidden></div><section id="interests-panel" class="panel interests" aria-labelledby="interests-title">
+            <div class="panel-heading"><h3 id="interests-title">Tus intereses (<span id="count">0</span>)</h3><button id="clear" class="icon-button" type="button" aria-label="Borrar todos los intereses" title="Borrar todos los intereses" disabled><span class="symbol" aria-hidden="true">delete</span></button></div>
+            <div id="empty" class="empty"><img src="assets/imgInterests.svg" alt="" width="80" height="80"><p>Elige para personalizar tus áreas de interés.</p></div>
+            <div id="tags" class="selected-groups" hidden></div>
+          </section>
+        </div>
+        <footer class="actions"><button id="interests-open" class="outline responsive-only" type="button" aria-haspopup="dialog">Ver seleccionados (<span id="selected-count">0</span>)</button><p id="status" class="sr-only" role="status" aria-live="polite"></p><button id="continue" class="primary" type="button" disabled>Continuar</button></footer>
+      </section>
+    </div>
+  </main>
+  <!-- Dialog nativo: limita el foco al modal y soporta Escape. -->
+  <dialog id="filters-dialog" class="modal filters-modal" aria-labelledby="filters-title">
+    <form id="filters-form">
+      <header class="modal-heading"><h2 id="filters-title">Buscar intereses</h2><button class="icon-button modal-close" type="button" data-close aria-label="Cerrar filtros">×</button></header>
+      <label class="sr-only" for="search">Buscar una subcategoría</label>
+      <div class="search-field"><span class="symbol" aria-hidden="true">search</span><input id="search" type="search" placeholder="Escribe una categoría o subcategoría" autocomplete="off"><button id="search-clear" class="icon-button" type="button" aria-label="Limpiar búsqueda">×</button></div>
+      <footer class="modal-actions"><button id="reset-filters" class="outline" type="button">Limpiar filtros</button><button id="apply-filters" class="primary" type="submit" disabled>Aplicar filtros</button></footer>
+    </form>
+  </dialog>
+  <dialog id="interests-dialog" class="modal interests-modal" aria-labelledby="interests-title">
+    <button class="icon-button modal-close" type="button" data-close aria-label="Cerrar intereses">×</button>
+    <div id="interests-slot"></div>
+    <footer class="interests-footer"><button id="clear-modal" class="outline danger" type="button" disabled>Quitar todos</button></footer>
+  </dialog>
+</body>
+</html>
